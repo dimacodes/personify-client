@@ -1,0 +1,173 @@
+body {
+  background: #00ff00 url('Spotify_VDAY-Cover.jpg')
+  no-repeat fixed center;
+  background-size: cover }
+
+.container {
+  text-align: center;
+}
+
+.row {
+  position: fixed;
+  top: 35%;
+  left: 10%;
+  right: 10%
+}
+
+.title {
+  position: fixed;
+  top: 5%;
+  left: 10%;
+  right: 10%;
+}
+
+h1.title {
+  font-family: proxima_nova,'Helvetica Neue',Helvetica,Arial,sans-serif;;
+  font-weight: 900;
+  font-size: 50px;
+  text-align: center;
+  color: white;
+  padding: 20px;
+}
+
+h2 {
+  font-family: proxima_nova,'Helvetica Neue',Helvetica,Arial,sans-serif;;
+  font-weight: lighter;
+  font-size: 50px;
+}
+
+h3 {
+  font-family: proxima_nova,'Helvetica Neue',Helvetica,Arial,sans-serif;;
+  font-weight: lighter;
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+h4 {
+  font-family: proxima_nova,'Helvetica Neue',Helvetica,Arial,sans-serif;;
+  font-weight: lighter;
+  font-size: 40px;
+  color: white;
+  margin-bottom: 20px;
+}
+
+p {
+ font-family: proxima_nova,'Helvetica Neue',Helvetica,Arial,sans-serif;;
+ font-weight: normal;
+ font-size: 20px;
+ color: white;
+}
+
+body {
+ font-family: proxima_nova,'Helvetica Neue',Helvetica,Arial,sans-serif;;
+ font-weight: normal;
+ font-size: 20px;
+ color: white;
+}
+
+.form {
+  font-family: proxima_nova,'Helvetica Neue',Helvetica,Arial,sans-serif;;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+}
+
+a:link {
+  font-weight: normal;
+  text-decoration: none;
+  color: white;
+}
+
+a:visited {
+    text-decoration: none;
+    color: white;
+}
+
+a:active {
+    text-decoration: none;
+    color: white;
+}
+
+.btn.btn-default {
+    font-size: 12px;
+    padding: 6px 20px;
+    margin: 0.3vw;
+    border-radius: 25px;
+    background-color: Transparent;
+    border: 1px solid white;
+    color: #DEDFE5;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+#get_people {
+  color: white;
+}
+
+#show_person {
+  color: white;
+}
+
+#post_people {
+  color: white;
+}
+
+#post_name {
+  color: black;
+}
+
+#post_favoriteCity {
+  color: black;
+}
+
+#update_people {
+  color: white;
+}
+
+#put_name {
+  color: black;
+}
+
+#put_favoriteCity {
+  color: black;
+}
+
+#delete_message {
+  color: white;
+}
+
+.btn.btn-default:focus, .btn.btn-default:active:focus, .btn.btn-default.active:focus {
+    outline: 0 none;
+}
+
+.btn.btn-default {
+    background-color: Transparent;
+    color: white;
+}
+
+.btn.btn-default:active {
+    background-color: Transparent;
+    box-shadow: none;
+}
+.title {
+  position: fixed;
+  top: 5%;
+  left: 10%;
+  right: 10%;
+}
+
+.clear_fields {
+    position: fixed;
+    text-align: center;
+    width: 100%;
+    top: 85%;
+}
+
+.documentation {
+    position: fixed;
+    text-align: center;
+    width: 100%;
+    top: 95%;
+}
