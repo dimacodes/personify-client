@@ -3,7 +3,6 @@ $(document).on('ready', function() {
   $("body").on("click", "#post_person_btn", postPerson)
   $("body").on("click", "#update_person_btn", updatePerson)
   $("body").on("click", "#delete_person_btn", deletePerson)
-  $("body").on("click", "#clear_btn", reload)
 });
 
 function getPeople(e) {
@@ -62,6 +61,7 @@ function postPerson(e) {
     }
   })
 }
+
 function updatePerson(e) {
   e.preventDefault()
   var name = $("input[name*=put_name]").val()
@@ -97,41 +97,6 @@ function updatePerson(e) {
   })
 }
 
-// function updatePerson(e) {
-//   e.preventDefault()
-//   var name = $("input[name*=put_name]").val()
-//   var favoriteCity = $("input[name*=put_favoriteCity]").val()
-//   $.ajax({
-//     method: "put",
-//     url: "https://personify-server.herokuapp.com/api/v1/people/1",
-//     data: {
-//       name: name,
-//       favoriteCity: favoriteCity
-//     },
-//     error: function(data, textStatus) {
-//       $("#update_message").empty().prepend("<br>").append("Looks like that person has been deleted.")
-//       window.setTimeout(function(){location.reload()},3000)
-//     },
-//     success: function(data, textStatus) {
-//       if (data.errors) {
-//         var error_info = "<h4>Not Updated:</h4>"
-//           data.errors.forEach(function(info){
-//             if (info.id == "favoriteCity"){
-//               info.title = info.title.replace(/Favoritecity/i, 'Favorite city')
-//             }
-//             error_info += "<text style=font-weight:bold>" + info.id + ": " + "</text>" + info.title + "<br>"
-//           })
-//         $("#update_message").empty().prepend("<br>").append(error_info)
-//       } else {
-//         var text = data.name + "'s" + " favoriteCity <br> is now:"
-//         text += "<p style=font-weight:bold>" + data.favoriteCity + "</p>"
-//         $("#update_message").empty().prepend("<br>").append("<h4>Change Sean's Favorite City:</h4>").append(text)
-//         window.setTimeout(function(){location.reload()},3000)
-//       }
-//     }
-//   })
-// }
-
 function deletePerson(e) {
   e.preventDefault()
   $.ajax({
@@ -146,8 +111,4 @@ function deletePerson(e) {
       window.setTimeout(function(){location.reload()},3000)
     }
   })
-}
-
-function reload(e) {
-  location.reload()
 }
