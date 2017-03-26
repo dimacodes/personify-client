@@ -4,18 +4,18 @@ $(document).on('ready', function() {
   $("body").on("click", "#update_person_btn", updatePerson)
   $("body").on("click", "#delete_person_btn", deletePerson)
   $("body").on("click", "#clear_btn", reload)
-})
+});
 
 function getPeople(e) {
   history.replaceState({}, document.title, ".");
   $.ajax({
     method: "get",
     url: "https://personify-server.herokuapp.com/api/v1/people",
-    error: function(data, textStatus, jqXHR) {
-      $("#get_people").empty().prepend("<br>").append("Please try again")
+    error: function(data, textStatus) {
+      $("#get_people").empty().append("Please try again.")
     },
-    success: function(data, textStatus, jqXHR) {
-      $("#get_people").empty().prepend("<br>").append("<h4>Everybody:</h4>")
+    success: function(data, textStatus) {
+      $("#get_people").empty().append("<p>GET /people/:id</p>")
       data.forEach(function(person){
         var id = person.id
         var name_link = $(document.createElement("a"))
@@ -39,10 +39,11 @@ function postPerson(e) {
         name: name,
         favoriteCity: favoriteCity
       },
-    error: function(data, textStatus, jqXHR) {
-      $("#show_person").empty().prepend("<br>").append("Please try again")
+    error: function(data, textStatus) {
+      $("#post_message").empty().prepend("<br>").append("Please try again.")
+      window.setTimeout(function(){location.reload()},3000)
     },
-    success: function(data, textStatus, jqXHR) {
+    success: function(data, textStatus) {
       if (data.errors){
         var error_info = "<h4>Not Added:</h4>"
           data.errors.forEach(function(info){
@@ -51,57 +52,98 @@ function postPerson(e) {
             }
             error_info += "<text style=font-weight:bold>" + info.id + ": " + "</text>"+ info.title + "<br>"
           })
-        $("#show_person").empty().prepend("<br>").append(error_info)
+        $("#post_message").empty().prepend("<br>").append(error_info)
       } else {
         var name_text = "name: " + data.name
         var city_text = "favoriteCity: " + data.favoriteCity
-        $("#show_person").empty().prepend("<br>").append("<h4>Added:</h4>").append(name_text).append("<br>").append(city_text)
+        $("#post_message").empty().prepend("<br>").append("<h4>Added:</h4>").append(name_text).append("<br>").append(city_text)
+        window.setTimeout(function(){location.reload()},3000)
+      }
+    }
+  })
+}
+function updatePerson(e) {
+  e.preventDefault()
+  var name = $("input[name*=put_name]").val()
+  var favoriteCity = $("input[name*=put_favoriteCity]").val()
+  $.ajax({
+    method: "put",
+    url: "https://personify-server.herokuapp.com/api/v1/people/1",
+    data: {
+        name: name,
+        favoriteCity: favoriteCity
+      },
+    error: function(data, textStatus) {
+      $("#update_message").empty().prepend("<br>").append("Looks like that person has been deleted.")
+      window.setTimeout(function(){location.reload()},3000)
+    },
+    success: function(data, textStatus) {
+      if (data.errors){
+        var error_info = "<h4>Not Updated:</h4>"
+          data.errors.forEach(function(info){
+            if (info.id == "favoriteCity"){
+              info.title = info.title.replace(/Favoritecity/i, 'Favorite city')
+            }
+            error_info += "<text style=font-weight:bold>" + info.id + ": " + "</text>"+ info.title + "<br>"
+          })
+        $("#update_message").empty().prepend("<br>").append(error_info)
+      } else {
+        var name_text = "name: " + data.name
+        var city_text = "favoriteCity: " + data.favoriteCity
+        $("#post_message").empty().prepend("<br>").append("<h4>Updated:</h4>").append(name_text).append("<br>").append(city_text)
+        window.setTimeout(function(){location.reload()},3000)
       }
     }
   })
 }
 
-function updatePerson(e) {
-  var name = $("input[name*=put_name]").val()
-  var favoriteCity = $("input[name*=put_favoriteCity]").val()
-    $.ajax({
-      method: "put",
-      url: "https://personify-server.herokuapp.com/api/v1/people/1",
-      data: {
-        name: name,
-        favoriteCity: favoriteCity
-      },
-      error: function(data, textStatus, jqXHR){
-        var text = "Looks like that person has already been deleted"
-        $("#update_person").empty().prepend("<br>").append(text)
-      },
-      success: function(data, textStatus, jqXHR) {
-        if (data.errors){
-          data.errors.forEach(function(info){
-              text = "Sean's favoriteCity has been updated: <br>"
-              if (info.id == "favoriteCity"){
-                info.title = info.title.replace(/Favoritecity/i, 'Favorite city')
-              }
-              text += "<text style=font-weight:bold>" + info.id + ": " + "</text>" + info.title + "<br>"
-            })
-          } else {
-            var text = data.name + "'s" + " The favoriteCity <br> is now:"
-            text += "<p style=font-weight:bold>" + data.favoriteCity + "</p>"
-        }
-        $("#update_person").empty().prepend("<br>").append("<h4>Change Sean's Favorite City:</h4>").append(text)
-      }
-    })
-}
+// function updatePerson(e) {
+//   e.preventDefault()
+//   var name = $("input[name*=put_name]").val()
+//   var favoriteCity = $("input[name*=put_favoriteCity]").val()
+//   $.ajax({
+//     method: "put",
+//     url: "https://personify-server.herokuapp.com/api/v1/people/1",
+//     data: {
+//       name: name,
+//       favoriteCity: favoriteCity
+//     },
+//     error: function(data, textStatus) {
+//       $("#update_message").empty().prepend("<br>").append("Looks like that person has been deleted.")
+//       window.setTimeout(function(){location.reload()},3000)
+//     },
+//     success: function(data, textStatus) {
+//       if (data.errors) {
+//         var error_info = "<h4>Not Updated:</h4>"
+//           data.errors.forEach(function(info){
+//             if (info.id == "favoriteCity"){
+//               info.title = info.title.replace(/Favoritecity/i, 'Favorite city')
+//             }
+//             error_info += "<text style=font-weight:bold>" + info.id + ": " + "</text>" + info.title + "<br>"
+//           })
+//         $("#update_message").empty().prepend("<br>").append(error_info)
+//       } else {
+//         var text = data.name + "'s" + " favoriteCity <br> is now:"
+//         text += "<p style=font-weight:bold>" + data.favoriteCity + "</p>"
+//         $("#update_message").empty().prepend("<br>").append("<h4>Change Sean's Favorite City:</h4>").append(text)
+//         window.setTimeout(function(){location.reload()},3000)
+//       }
+//     }
+//   })
+// }
 
 function deletePerson(e) {
+  e.preventDefault()
   $.ajax({
     method: "delete",
     url: "https://personify-server.herokuapp.com/api/v1/people/1",
-    error: function(data, textStatus, jqXHR){
-      $("#delete_message").empty().prepend("<br>").append("<br>Looks like that person has already been deleted")
+    error: function(data, textStatus){
+      $("#delete_message").empty().append("<br>Looks like that person has been deleted.")
+      window.setTimeout(function(){location.reload()},3000)
     },
-    success: function(data, textStatus, jqXHR) {
-      $("#delete_message").empty().prepend("<br>").append("<br>Person with an id of 1 has been deleted")
+    success: function(data, textStatus) {
+      $("#delete_message").empty().prepend("<br>").append("<br>Person with an id of 1 has been deleted.")
+      window.setTimeout(function(){location.reload()},3000)
     }
   })
 }
