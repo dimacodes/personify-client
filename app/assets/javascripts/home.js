@@ -40,7 +40,7 @@ function postPerson(e) {
       },
     error: function(data, textStatus) {
       $("#post_message").empty().prepend("<br>").append("Please try again.")
-      window.setTimeout(function(){location.reload()},3000)
+      window.setTimeout(function(){location.reload()},2000)
     },
     success: function(data, textStatus) {
       if (data.errors){
@@ -75,24 +75,10 @@ function updatePerson(e) {
       },
     error: function(data, textStatus) {
       $("#update_message").empty().prepend("<br>").append("Looks like that person has been deleted.")
-      window.setTimeout(function(){location.reload()},3000)
+      window.setTimeout(function(){location.reload()},2000)
     },
     success: function(data, textStatus) {
-      if (data.errors){
-        var error_info = "<h4>Not Updated:</h4>"
-          data.errors.forEach(function(info){
-            if (info.id == "favoriteCity"){
-              info.title = info.title.replace(/Favoritecity/i, 'Favorite city')
-            }
-            error_info += "<text style=font-weight:bold>" + info.id + ": " + "</text>"+ info.title + "<br>"
-          })
-        $("#update_message").empty().prepend("<br>").append(error_info)
-      } else {
-        var name_text = "name: " + data.name
-        var city_text = "favoriteCity: " + data.favoriteCity
-        $("#post_message").empty().prepend("<br>").append("<h4>Updated:</h4>").append(name_text).append("<br>").append(city_text)
-        window.setTimeout(function(){location.reload()},3000)
-      }
+      location.reload();
     }
   })
 }
@@ -104,11 +90,11 @@ function deletePerson(e) {
     url: "https://personify-server.herokuapp.com/api/v1/people/1",
     error: function(data, textStatus){
       $("#delete_message").empty().append("<br>Looks like that person has been deleted.")
-      window.setTimeout(function(){location.reload()},3000)
+      window.setTimeout(function(){location.reload()},2000)
     },
     success: function(data, textStatus) {
       $("#delete_message").empty().prepend("<br>").append("<br>Person with an id of 1 has been deleted.")
-      window.setTimeout(function(){location.reload()},3000)
+      window.setTimeout(function(){location.reload()},2000)
     }
   })
 }
