@@ -1,4 +1,4 @@
-#Personify.
+Personify.
 
 Please visit the Personify client at http://personify-client.herokuapp.com/.
 
