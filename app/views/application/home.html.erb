@@ -1,45 +1,42 @@
 <div class ="container">
   <div class ="row">
+
     <div class="col-sm-3" id="get_people">
-      <p>Make a GET request to '/people'</p><br>
-      <button type = "button" class = "btn btn-default" id="get_people_btn">Get /people</button>
+      <p>GET /people</p><br>
+      <button type = "button" class = "btn btn-default" id="get_people_btn">See People</button>
     </div>
+
     <div class="col-sm-3" id="post_people">
-      <p>Make a POST request to '/people'</p><br>
+      <p>POST /people</p><br>
+      <form id="form">
         <%= form_tag('/people', method: :post) do %>
-            New Person's Name:<br>
-            <%= text_field_tag :post_name %><br><br>
-            New Person's Favorite City:<br>
-            <%= text_field_tag :post_favoriteCity %><br><br>
-            <button type = "submit" class = "btn btn-default" id="post_person_btn">Post /people</button>
+            <input title="Name" placeholder="Add Name" type="text" name=":post_name" id="post_name"><br><br>
+            <input title="City" placeholder="Add Favorite City" type="text" name=":post_favoriteCity" id="post_favoriteCity"><br><br>
+            <button type = "submit" class = "btn btn-default" id="post_person_btn">Add Person</button>
         <% end %>
-        <div class ="col-sm-3" id="show_person">
-      </div>
+        <div class="message" id="post_message"></div>
     </div>
+
     <div class="col-sm-3" id="update_people">
-      <p>Make a PUT request to '/people/1'</p><br>
-      Edit Person's Name: <br>
-      <%= text_field_tag :put_name %><br><br>
-      Edit Person's Favorite City:<br>
-      <%= text_field_tag :put_favoriteCity %><br><br>
-      <button type = "submit" class = "btn btn-default" id="update_person_btn">Put /people/1</button>
-      <div class ="col-sm-3" id="update_person">
-      </div>
+      <p>PUT /people/1</p><br>
+      <form id="form">
+        <%= form_tag('/people/1', method: :put) do %>
+          <input title="Name" placeholder="Edit Name" type="text" name=":put_name" id="put_name"><br><br>
+          <input title="City" placeholder="Edit Favorite City" type="text" name=":put_favoriteCity" id="put_favoriteCity"><br><br>
+          <button type = "submit" class = "btn btn-default" id="update_person_btn">Edit Person</button>
+        <% end %>
+      <div class="message" id="update_message"></div>
     </div>
-    <div class=class="col-sm-3">
-      <p>Make a DELETE request to '/people/1'</p><br>
-      <button type = "submit" class = "btn btn-default" id="delete_person_btn">Delete /people/1</button>
-      <div class ="col-sm-3" id="delete_message">
-      </div>
+
+    <div class="col-sm-3" id="delete_people">
+      <p>DELETE /people/1</p><br>
+      <button type = "submit" class = "btn btn-default" id="delete_person_btn">Delete Person</button>
+      <div class="message" id="delete_message"></div>
     </div>
 
   </div>
 </div>
 
-<div class="clear_fields">
-  <button type = "submit" class = "btn btn-default" id="clear_btn"> Clear Fields </button><br>
-</div>
-
-<div clas="documentation">
-  <a style="font-size:16px" href="https://github.com/dimitriwashere/personify-server" target="_blank" >&nbsp;Documentation</a>
+<div class="documentation">
+  <a style="font-size:14px" href="https://github.com/dimitriwashere/personify-server" target="_blank" >DOCUMENTATION</a>
 </div>
