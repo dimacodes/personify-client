@@ -1,7 +1,7 @@
 # Personify.
 
 - Configured to access the Personify. API endpoint at [http://personify-server.herokuapp.com/api](http://personify-server.herokuapp.com)
-- Built with JavaScript, Jquery, AJAX, HTML, CSS
+- Built with JavaScript, JQuery, AJAX, HTML, CSS
 
 Example AJAX request:
 
