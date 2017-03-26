@@ -88,13 +88,31 @@ a:active {
     color: white;
 }
 
+input {
+  user-select: text;
+  text-align: center;
+  background-color: inherit;
+	font-size: inherit;
+  border: none;
+  border-bottom: 1px solid white;
+  margin-right: 1vw;
+  color: white;
+}
+
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  font-weight: lighter;
+  color: white;
+}
+
+
 .btn.btn-default {
     font-size: 12px;
     padding: 6px 20px;
     margin: 0.3vw;
     border-radius: 25px;
     background-color: Transparent;
-    border: 1px solid white;
+    border: 1px solid white;;
     color: #DEDFE5;
     text-transform: uppercase;
     letter-spacing: 3px;
@@ -102,44 +120,11 @@ a:active {
     text-decoration: none;
 }
 
-#get_people {
-  color: white;
-}
-
-#show_person {
-  color: white;
-}
-
-#post_people {
-  color: white;
-}
-
-#post_name {
-  color: black;
-}
-
-#post_favoriteCity {
-  color: black;
-}
-
-#update_people {
-  color: white;
-}
-
-#put_name {
-  color: black;
-}
-
-#put_favoriteCity {
-  color: black;
-}
-
-#delete_message {
-  color: white;
-}
-
 .btn.btn-default:focus, .btn.btn-default:active:focus, .btn.btn-default.active:focus {
     outline: 0 none;
+    background-color: Transparent;
+    border: 1px solid white;
+    color: white;
 }
 
 .btn.btn-default {
@@ -150,24 +135,48 @@ a:active {
 .btn.btn-default:active {
     background-color: Transparent;
     box-shadow: none;
-}
-.title {
-  position: fixed;
-  top: 5%;
-  left: 10%;
-  right: 10%;
+    border: 1px solid white;
+    color: white;
 }
 
-.clear_fields {
-    position: fixed;
-    text-align: center;
-    width: 100%;
-    top: 85%;
+.btn.btn-default:hover {
+    background-color: Transparent;
+    box-shadow: none;
+    border: 2px solid white;
+    color: white;
 }
 
 .documentation {
     position: fixed;
     text-align: center;
     width: 100%;
-    top: 95%;
+    top: 85%;
+}
+
+*:focus {
+    outline: none;
+}
+
+#get_people {
+  color: white;
+}
+
+#post_message {
+  color: white;
+}
+
+#post_people {
+  color: white;
+}
+
+#update_people {
+  color: white;
+}
+
+#delete_message {
+  color: white;
+}
+
+#form {
+  background-color: transparent;
 }
