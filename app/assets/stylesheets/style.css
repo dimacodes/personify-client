@@ -79,13 +79,15 @@ a:link {
 }
 
 a:visited {
-    text-decoration: none;
-    color: white;
+  color: white;
+}
+
+a:hover {
+  color: white;
 }
 
 a:active {
-    text-decoration: none;
-    color: white;
+  color: white;
 }
 
 input {
@@ -107,50 +109,59 @@ textarea::-webkit-input-placeholder {
 
 
 .btn.btn-default {
-    font-size: 12px;
-    padding: 6px 20px;
-    margin: 0.3vw;
-    border-radius: 25px;
-    background-color: Transparent;
-    border: 1px solid white;;
-    color: #DEDFE5;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    font-weight: bold;
-    text-decoration: none;
+  font-size: 12px;
+  padding: 6px 20px;
+  margin: 0.3vw;
+  border-radius: 25px;
+  background-color: Transparent;
+  border: 1px solid white;;
+  color: #DEDFE5;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: bold;
+  text-decoration: none;
 }
 
 .btn.btn-default:focus, .btn.btn-default:active:focus, .btn.btn-default.active:focus {
-    outline: 0 none;
-    background-color: Transparent;
-    border: 1px solid white;
-    color: white;
+  outline: 0 none;
+  background-color: Transparent;
+  border: 1px solid white;
+  color: white;
 }
 
 .btn.btn-default {
-    background-color: Transparent;
-    color: white;
+  background-color: Transparent;
+  color: white;
 }
 
 .btn.btn-default:active {
-    background-color: Transparent;
-    box-shadow: none;
-    border: 1px solid white;
-    color: white;
+  background-color: Transparent;
+  box-shadow: none;
+  border: 1px solid white;
+  color: white;
 }
 
 .btn.btn-default:hover {
-    background-color: Transparent;
-    box-shadow: none;
-    border: 2px solid white;
-    color: white;
+  background-color: Transparent;
+  box-shadow: none;
+  border: 2px solid white;
+  color: white;
 }
 
 .documentation {
-    position: fixed;
-    text-align: center;
-    width: 100%;
-    top: 85%;
+  position: fixed;
+  text-align: center;
+  width: 100%;
+  top: 85%;
+}
+
+.documentation a:hover {
+  color: white;
+}
+
+.documentation a:visited {
+  color: white;
+  text-decoration: none;
 }
 
 *:focus {
@@ -158,6 +169,14 @@ textarea::-webkit-input-placeholder {
 }
 
 #get_people {
+  color: white;
+}
+
+#get_people ui:hover {
+  font-weight: bold;
+}
+
+#get_message {
   color: white;
 }
 
@@ -179,4 +198,13 @@ textarea::-webkit-input-placeholder {
 
 #form {
   background-color: transparent;
+}
+
+footer a:hover {
+  color: white;
+}
+
+footer a:visited {
+  color: white;
+  text-decoration: none;
 }
