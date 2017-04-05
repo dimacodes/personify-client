@@ -80,11 +80,14 @@ function updatePerson(e) {
       favoriteCity: favoriteCity
     },
     error: function(data) {
-      $("#update_message").empty().prepend("<br>").append("Looks like that person has been deleted.")
+      $("#update_message").empty().prepend("<br>").append("Please try again.")
       window.setTimeout(function(){location.reload()},2000)
     },
     success: function(data) {
-      location.reload();
+      var nameText = "name: " + data.name
+      var favoriteCityText = "favoriteCity: " + data.favoriteCity
+      $("#update_message").empty().prepend("<br>").append("<h4>Updated:</h4>").append(nameText).append("<br>").append(favoriteCityText)
+      window.setTimeout(function(){location.reload()},3000)
     }
   })
 }
